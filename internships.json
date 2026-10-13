@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer Intern",
+    "company": "Example Technologies",
+    "domain": "Web Development",
+    "location": "Remote",
+    "description": "Practice HTML, CSS and JavaScript."
+  },
+  {
+    "id": 2,
+    "title": "Python Developer Intern",
+    "company": "Sample Software",
+    "domain": "Python",
+    "location": "Remote",
+    "description": "Practice Python programming and problem solving."
+  },
+  {
+    "id": 3,
+    "title": "Data Analyst Intern",
+    "company": "Example Analytics",
+    "domain": "Data Science",
+    "location": "Hybrid",
+    "description": "Explore datasets and create reports."
+  }
+]
