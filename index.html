@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore and filter internship opportunities.">
+  <title>Internship Board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="Internship Board home">
+        Intern<span>Board</span>
+      </a>
+      <span class="header-label">Explore opportunities</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</p>
+      <h1>Find an internship that fits your future.</h1>
+      <p>Explore opportunities, discover new skills and take your next step.</p>
+    </section>
+
+    <section class="search-panel" aria-labelledby="search-heading">
+      <h2 id="search-heading">Explore internships</h2>
+
+      <div class="filters">
+        <div class="field">
+          <label for="search">Search opportunities</label>
+          <input id="search" type="search"
+            placeholder="Role, company or keyword">
+        </div>
+
+        <div class="field">
+          <label for="domain">Filter by domain</label>
+          <select id="domain">
+            <option value="all">All domains</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="clearFilters" class="clear-button" type="button">
+        Clear filters
+      </button>
+    </section>
+
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="results-header">
+        <h2 id="results-heading">Available internships</h2>
+        <p id="resultCount" aria-live="polite">Loading internships...</p>
+      </div>
+
+      <p id="errorMessage" class="message error" role="alert" hidden>
+        We could not load the internship data.
+        Please check the JSON file and try again.
+      </p>
+
+      <div id="internshipList" class="internship-grid"></div>
+
+      <div id="emptyMessage" class="message empty" hidden>
+        <h3>No internships found</h3>
+        <p>Try another keyword or select a different domain.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>InternBoard · Built with HTML, CSS and JavaScript</p>
+  </footer>
+</body>
+</html>
