@@ -26,13 +26,20 @@ Add your deployed website URL here.
 ## Source Code
 Add your GitHub repository URL here.
 
+
 ## Screenshots
 
-### Desktop
-![Desktop screenshot](screenshots/desktop.png)
+### 1. Desktop.png — Desktop View
+![Desktop.png](screenshots/Desktop.png)
 
-### Mobile
-![Mobile screenshot](screenshots/mobile.png)
+### 2. mobile.png — Mobile View
+![mobile.png](screenshots/mobile.png)
+
+### 3. mobile1.png — Mobile View
+![mobile1.png](screenshots/mobile1.png)
+
+### 4. mobile2.png — Mobile View
+![mobile2.png](screenshots/mobile2.png)
 
 ## Data Source
 Uses the fictional internship records supplied for the EdVyro task.
