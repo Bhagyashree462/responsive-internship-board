@@ -102,9 +102,7 @@ function normalizeInternship(item) {
 async function readResponse(response) {
   const text = await response.text();
 
-  if (!text) {
-    return {};
-  }
+  if (!text) return {};
 
   try {
     return JSON.parse(text);
@@ -271,9 +269,7 @@ function createApplicationForm(internship) {
   form.addEventListener("submit", async event => {
     event.preventDefault();
 
-    if (!form.reportValidity()) {
-      return;
-    }
+    if (!form.reportValidity()) return;
 
     if (
       internship.id === null ||
