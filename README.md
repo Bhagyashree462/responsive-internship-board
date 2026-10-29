@@ -27,7 +27,7 @@ A responsive internship listing website built using HTML, CSS, and JavaScript. T
 
 Visit the deployed website:
 
-https://bhagyashree462.github.io/responsive-internship-board/
+https://bhagyashree462.github.io/responsive-internship-board/?utm_source=chatgpt.com
 
 ## Source Code
 
