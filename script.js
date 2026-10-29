@@ -1,7 +1,8 @@
-
 "use strict";
 
-const API_BASE_URL = "http://localhost:3000";
+// Deployed Render backend URL
+const API_BASE_URL = "https://internship-records-api.onrender.com";
+
 const INTERNSHIPS_ENDPOINT = `${API_BASE_URL}/api/internships`;
 const APPLICATIONS_ENDPOINT = `${API_BASE_URL}/api/applications`;
 
@@ -178,12 +179,13 @@ function createApplicationForm(internship) {
   const form = document.createElement("form");
   form.className = "application-form";
 
-  const heading = createTextElement(
-    "h3",
-    "application-heading",
-    "Apply for this internship"
+  form.appendChild(
+    createTextElement(
+      "h3",
+      "application-heading",
+      "Apply for this internship"
+    )
   );
-  form.appendChild(heading);
 
   const fields = [
     {
@@ -273,8 +275,11 @@ function createApplicationForm(internship) {
       return;
     }
 
-    if (internship.id === null || internship.id === undefined ||
-        String(internship.id).trim() === "") {
+    if (
+      internship.id === null ||
+      internship.id === undefined ||
+      String(internship.id).trim() === ""
+    ) {
       message.textContent =
         "This internship does not have a valid ID. Please contact support.";
       message.className = "form-message form-message-error";
@@ -295,7 +300,8 @@ function createApplicationForm(internship) {
       application.resumeUrl &&
       !isValidHttpUrl(application.resumeUrl)
     ) {
-      message.textContent = "Please enter a valid HTTP or HTTPS resume URL.";
+      message.textContent =
+        "Please enter a valid HTTP or HTTPS resume URL.";
       message.className = "form-message form-message-error";
       return;
     }
@@ -310,7 +316,7 @@ function createApplicationForm(internship) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
+          Accept: "application/json"
         },
         body: JSON.stringify(application)
       });
@@ -335,8 +341,9 @@ function createApplicationForm(internship) {
 
       message.textContent =
         error instanceof TypeError
-          ? "Could not reach the API. Check that the backend is running and CORS is configured."
-          : error.message || "Unable to submit your application. Please retry.";
+          ? "Could not reach the API. Check the backend URL and CORS configuration."
+          : error.message ||
+            "Unable to submit your application. Please retry.";
 
       message.className = "form-message form-message-error";
     } finally {
@@ -364,12 +371,15 @@ function createCard(internship) {
   );
 
   card.appendChild(top);
+
   card.appendChild(
     createTextElement("h3", "card-title", internship.title)
   );
+
   card.appendChild(
     createTextElement("p", "company", internship.company)
   );
+
   card.appendChild(
     createTextElement(
       "p",
@@ -377,6 +387,7 @@ function createCard(internship) {
       `Location / mode: ${internship.location}`
     )
   );
+
   card.appendChild(
     createTextElement(
       "p",
@@ -413,8 +424,10 @@ function renderInternships() {
       item.description
     ].join(" ").toLowerCase();
 
-    return searchable.includes(query) &&
-      (selectedDomain === "all" || item.domain === selectedDomain);
+    return (
+      searchable.includes(query) &&
+      (selectedDomain === "all" || item.domain === selectedDomain)
+    );
   });
 
   internshipList.replaceChildren();
@@ -454,7 +467,7 @@ async function loadInternships() {
     const response = await fetch(
       `${INTERNSHIPS_ENDPOINT}?page=1&limit=100`,
       {
-        headers: { "Accept": "application/json" }
+        headers: { Accept: "application/json" }
       }
     );
 
@@ -462,7 +475,10 @@ async function loadInternships() {
 
     if (!response.ok) {
       throw new Error(
-        getErrorMessage(result, `Request failed (HTTP ${response.status}).`)
+        getErrorMessage(
+          result,
+          `Request failed (HTTP ${response.status}).`
+        )
       );
     }
 
@@ -481,6 +497,7 @@ async function loadInternships() {
     }
 
     internships = records.map(normalizeInternship);
+
     populateDomains();
     renderInternships();
   } catch (error) {
@@ -488,8 +505,9 @@ async function loadInternships() {
 
     showError(
       error instanceof TypeError
-        ? "Could not connect to the backend. Make sure the API is running on port 3000 and CORS allows this frontend."
-        : error.message || "Something went wrong while loading internships."
+        ? "Could not connect to the deployed API. Check the backend URL, availability, and CORS configuration."
+        : error.message ||
+          "Something went wrong while loading internships."
     );
   } finally {
     setLoading(false);
