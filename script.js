@@ -1,7 +1,7 @@
 "use strict";
 
 // Deployed Render backend URL
-const API_BASE_URL = "https://internship-records-api.onrender.com";
+const API_BASE_URL = "http://localhost:3000";
 
 const INTERNSHIPS_ENDPOINT = `${API_BASE_URL}/api/internships`;
 const APPLICATIONS_ENDPOINT = `${API_BASE_URL}/api/applications`;
